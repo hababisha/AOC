@@ -3,7 +3,6 @@ dial = [50]
 def solve(l):
     for line in l:
         line = line.strip()
-        if not line: continue
         if line[0] == "L":
             dial[0] = (dial[0] - int(line[1:]))%100
         else:
