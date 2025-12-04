@@ -1,20 +1,24 @@
-ans = 0
+def invalid(x):
+    s = str(x)
+    n = len(s)
+    if n % 2 != 0:  
+        return False
+    half = n // 2
+    return s[:half] == s[half:]
 
-def solve(l):
-    global ans
-    line = l[0]
-    line.strip()
+total = 0
 
-    separated = line.split(",")
-    for r in separated:
-        ranges = r.split("-")
-        l,r 
+with open("input.txt", "r") as f:
+    line = f.read().strip()  
 
-    return ranges
+ranges = line.split(",")
 
+for r in ranges:
+    if not r: 
+        continue
+    start, end = map(int, r.split("-"))
+    for x in range(start, end + 1):
+        if invalid(x):
+            total += x
 
-with open("input.txt") as f:
-    l = f.readlines()
-    solve(l)
-
-print(solve(l))
+print(total)
